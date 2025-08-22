@@ -4,7 +4,7 @@ import gspread
 from google.oauth2.service_account import Credentials
 
 # Google Sheets setup (replace with your own values)
-SERVICE_ACCOUNT_FILE = 'service_account.json'  # Path to your service credentials JSON
+SERVICE_ACCOUNT_FILE = '/etc/secrets/service_account.json'  # Path to your service credentials JSON
 SHEET_NAME = 'test'  # Sheet name (not file name!)
 
 # Authorize and connect to Google Sheets
