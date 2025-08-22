@@ -24,7 +24,10 @@ async def echo_and_log(update: Update, context: ContextTypes.DEFAULT_TYPE):
     sheet.append_row([username, text])
 
 def main():
-    application = Application.builder().token("7943224731:AAE5IYkiEQwmCkP9C59y5h2QV59cjOm0NXc").build()
+    token = os.environ.get("TELEGRAM_BOT_TOKEN")
+    if not token:
+        raise ValueError("Please set the TELEGRAM_BOT_TOKEN environment variable.")
+    application = Application.builder().token(token).build()
     application.add_handler(MessageHandler(filters.TEXT & ~filters.COMMAND, echo_and_log))
     application.run_polling()
 
